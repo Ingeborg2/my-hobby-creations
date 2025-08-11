@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Kaushan Script;
+  src: url("./src/assets/fonts/KaushanScript-Regular.ttf");
+  font-family: Roboto;
+  src: url("./src/assets/fonts/Roboto-Regular.ttf");
+}
+
+@import "tailwindcss";
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+}
+
+@theme {
+  --font-kaushan-script: Kaushan Script, sans-serif;
+  --font-roboto: Roboto, sans-serif;
+}

@@ -1,25 +1,22 @@
-import { useState } from "react";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
+import { useRef, useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 export default function LightboxGallery({ images }) {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const captionsRef = useRef([]);
+  const zoomRef = useRef(null);
 
   return (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-      gap: "10px",
-      padding: "10px"
-    }}>
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-2.5 p-2.5">
       {images.map((img, index) => (
         <img
           key={index}
           src={img.thumb}
           alt={`Foto ${index + 1}`}
           loading="lazy"
-          style={{ width: "100%", cursor: "pointer", borderRadius: "8px" }}
+          className="w-full cursor-pointer rounded-lg"
           onClick={() => { setPhotoIndex(index); setIsOpen(true); }}
         />
       ))}
