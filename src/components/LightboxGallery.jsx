@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+/*import { useRef, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
@@ -35,6 +35,61 @@ export default function LightboxGallery({ images }) {
           }
         />
       )}
+    </div>
+  );
+}
+*/
+
+// src/components/Gallery.jsx
+import { useEffect, useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+export default function Gallery({ category }) {
+  const [images, setImages] = useState([]);
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}images.json`)
+      .then(res => res.json())
+      .then(data => {
+        const filtered = category
+          ? data.filter(img => img.category === category)
+          : data;
+
+        setImages(
+          filtered.map(img => ({
+            src: `${import.meta.env.BASE_URL}${img.src}`,
+            alt: img.alt || "",
+          }))
+        );
+      });
+  }, [category]);
+
+  return (
+    <div className="mx-auto px-4">
+      <h1 className="py-4 px-6 font-kaushan text-2xl text-center">
+        {images.length > 0 ? category : ""}
+      </h1>
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        {images.map((img, i) => (
+          <img
+            key={i}
+            src={img.src}
+            alt={img.alt}
+            className="h-auto object-cover cursor-pointer"
+            onClick={() => setLightboxIndex(i)}
+          />
+        ))}
+      </div>
+
+      <Lightbox
+        open={lightboxIndex >= 0}
+        index={lightboxIndex}
+        close={() => setLightboxIndex(-1)}
+        slides={images}
+      />
     </div>
   );
 }

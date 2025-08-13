@@ -1,10 +1,6 @@
-@font-face {
-  font-family: Kaushan Script;
-  src: url("./src/assets/fonts/KaushanScript-Regular.ttf");
-  font-family: Roboto;
-  src: url("./src/assets/fonts/Roboto-Regular.ttf");
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@100..900&display=swap");
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 @import "tailwindcss";
 
 @layer base {
@@ -17,6 +13,39 @@
 }
 
 @theme {
-  --font-kaushan-script: Kaushan Script, sans-serif;
-  --font-roboto: Roboto, sans-serif;
+  --color-primary: #5c048f;
+
+  --font-kaushan: "Kaushan Script", cursive;
+  --font-roboto: "Roboto", sans-serif;
+
+  /*--breakpoint-xs: 30rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;*/
+
+  @keyframes open-menu {
+    0% {
+      transform: scaleY(0);
+      opacity: 0;
+      transform-origin: top;
+    }
+    80% {
+      transform: scaleY(1.05);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  --animate-open-menu: open-menu 0.35s ease-in-out forwards;
+}
+
+html,
+body,
+#root {
+  height: 100%;
 }
