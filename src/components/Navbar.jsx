@@ -127,17 +127,17 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span
-              className={`block h-1 bg-white rounded transition-all duration-300 ease-in-out ${
+              className={`block h-2 bg-white rounded transition-all duration-300 ease-in-out ${
                 mobileMenuOpen ? "rotate-45 translate-y-2" : ""
               }`}
             ></span>
             <span
-              className={`block h-1 bg-white rounded transition-all duration-300 ease-in-out ${
+              className={`block h-2 bg-white rounded transition-all duration-300 ease-in-out ${
                 mobileMenuOpen ? "opacity-0" : ""
               }`}
             ></span>
             <span
-              className={`block h-1 bg-white rounded transition-all duration-300 ease-in-out ${
+              className={`block h-2 bg-white rounded transition-all duration-300 ease-in-out ${
                 mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
               }`}
             ></span>
