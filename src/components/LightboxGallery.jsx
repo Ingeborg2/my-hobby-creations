@@ -44,6 +44,8 @@ export default function LightboxGallery({ images }) {
 import { useEffect, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+
 
 export default function Gallery({ category }) {
   const [images, setImages] = useState([]);
@@ -89,6 +91,7 @@ export default function Gallery({ category }) {
         index={lightboxIndex}
         close={() => setLightboxIndex(-1)}
         slides={images}
+        plugins={[Zoom]}
       />
     </div>
   );

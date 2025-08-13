@@ -113,16 +113,17 @@ export default function Navbar() {
     <>
       {/* Top Nav */}
       <section>
-        <nav className="flex items-center justify-between bg-primary text-white py-4 px-6 h-[75px]">
+        <nav className="flex items-center justify-between bg-primary text-white py-4 px-6 h-[75px] max-w-full">
           {/* Title */}
           <span className="font-kaushan text-2xl sm:text-2xl md:text-3xl">
             Mijn hobby creaties
           </span>
 
           {/* Hamburger button */}
-          <button
+           {mobileMenuOpen && (
+            <button
             id="hamburger-button"
-            className="flex flex-col justify-between w-8 h-6 md:hidden focus:outline-none"
+            className="fixed flex flex-col justify-between w-8 h-6 md:hidden focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -142,6 +143,8 @@ export default function Navbar() {
               }`}
             ></span>
           </button>
+           )}
+          
 
           {/* Desktop Menu */}
           <div className="hidden md:block font-roboto text-xl space-x-8">
