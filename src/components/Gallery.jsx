@@ -64,7 +64,7 @@ export default function Gallery({ category }) {
           <img
             key={i}
             src={`${import.meta.env.BASE_URL}${img.src}`}
-            alt={`${import.meta.env.BASE_URL}${img.alt}`}
+            alt={img.alt}
             loading="lazy"
             className="w-full h-auto object-cover rounded cursor-pointer hover:opacity-90 transition"
             onClick={() => {
