@@ -63,8 +63,8 @@ export default function Gallery({ category }) {
         {images.map((img, i) => (
           <img
             key={i}
-            src={img.src}
-            alt={img.alt}
+            src={`${import.meta.env.BASE_URL}${img.src}`}
+            alt={`${import.meta.env.BASE_URL}${img.alt}`}
             loading="lazy"
             className="w-full h-auto object-cover rounded cursor-pointer hover:opacity-90 transition"
             onClick={() => {
@@ -79,7 +79,7 @@ export default function Gallery({ category }) {
         open={open}
         index={index}
         close={() => setOpen(false)}
-        slides={images.map((img) => ({ src: img.src }))}
+        slides={images.map((img) => ({src: `${import.meta.env.BASE_URL}${img.src}`}))}
       />
     </div>
   );
