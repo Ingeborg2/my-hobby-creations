@@ -1,42 +1,7 @@
 [
   {
     "category": "polymerClay",
-    "src": "polymerClay/image-1.jpg",
-    "alt": "Earrings made of polymer clay"
-  },
-  {
-    "category": "polymerClay",
-    "src": "polymerClay/image-2.jpg",
-    "alt": "Earrings made of polymer clay"
-  },
-  {
-    "category": "polymerClay",
-    "src": "polymerClay/image-3.jpg",
-    "alt": "Earrings made of polymer clay"
-  },
-  {
-    "category": "polymerClay",
-    "src": "polymerClay/image-4.jpg",
-    "alt": "Earrings made of polymer clay"
-  },
-  {
-    "category": "polymerClay",
-    "src": "polymerClay/image-5.jpg",
-    "alt": "Earrings made of polymer clay"
-  },
-  {
-    "category": "polymerClay",
-    "src": "polymerClay/image-6.jpg",
-    "alt": "Earrings made of polymer clay"
-  },
-  {
-    "category": "polymerClay",
-    "src": "polymerClay/image-7.jpg",
-    "alt": "Earrings made of polymer clay"
-  },
-  {
-    "category": "polymerClay",
-    "src": "polymerClay/image-8.jpg",
+    "src": "polymerClay/image-10.jpg",
     "alt": "Earrings made of polymer clay"
   },
   {
@@ -46,7 +11,42 @@
   },
   {
     "category": "polymerClay",
+    "src": "polymerClay/image-8.jpg",
+    "alt": "Earrings made of polymer clay"
+  },
+  {
+    "category": "polymerClay",
+    "src": "polymerClay/image-7.jpg",
+    "alt": "Earrings made of polymer clay"
+  },
+  {
+    "category": "polymerClay",
+    "src": "polymerClay/image-6.jpg",
+    "alt": "Earrings made of polymer clay"
+  },
+  {
+    "category": "polymerClay",
+    "src": "polymerClay/image-5.jpg",
+    "alt": "Earrings made of polymer clay"
+  },
+  {
+    "category": "polymerClay",
+    "src": "polymerClay/image-4.jpg",
+    "alt": "Earrings made of polymer clay"
+  },
+  {
+    "category": "polymerClay",
+    "src": "polymerClay/image-3.jpg",
+    "alt": "Earrings made of polymer clay"
+  },
+  {
+    "category": "polymerClay",
     "src": "polymerClay/image-2.jpg",
+    "alt": "Earrings made of polymer clay"
+  },
+  {
+    "category": "polymerClay",
+    "src": "polymerClay/image-1.jpg",
     "alt": "Earrings made of polymer clay"
   }
 ]
