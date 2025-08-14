@@ -40,11 +40,12 @@ export default function LightboxGallery({ images }) {
 }
 */
 
-// src/components/Gallery.jsx
+
 import { useEffect, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/plugins/zoom.css";
 
 
 export default function Gallery({ category }) {
@@ -92,6 +93,27 @@ export default function Gallery({ category }) {
         close={() => setLightboxIndex(-1)}
         slides={images}
         plugins={[Zoom]}
+       zoom={{
+          maxZoomPixelRatio: 3,
+          zoomInMultiplier: 1.5,
+          doubleTapDelay: 300,
+          doubleClickDelay: 300,
+          wheelZoom: true,
+        }}
+        render={{
+          slide: ({ slide }) => (
+            <div
+              className="flex items-center justify-center w-full h-full transform transition-transform duration-300 ease-in-out hover:scale-110 focus-within:scale-110"
+              tabIndex={0}
+            >
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+          ),
+        }}
       />
     </div>
   );

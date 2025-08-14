@@ -116,35 +116,32 @@ export default function Navbar() {
         <nav className="flex items-center justify-between bg-primary text-white py-4 px-6 h-[75px] max-w-full">
           {/* Title */}
           <span className="font-kaushan text-2xl sm:text-2xl md:text-3xl">
-            Mijn hobby creaties
+            <Link to="/">Mijn hobby creaties</Link>
           </span>
 
           {/* Hamburger button */}
-           {mobileMenuOpen && (
             <button
             id="hamburger-button"
-            className="fixed flex flex-col justify-between w-8 h-6 md:hidden focus:outline-none"
+            className="z-[60] flex flex-col start-end justify-between w-8 h-6 md:hidden focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
             <span
-              className={`block h-2 bg-white rounded transition-all duration-300 ease-in-out ${
-                mobileMenuOpen ? "rotate-45 translate-y-2" : ""
+              className={`block h-[4px] bg-white rounded transition-all duration-300 ease-in-out ${
+                mobileMenuOpen ? "rotate-45 translate-y-[10px]" : ""
               }`}
             ></span>
             <span
-              className={`block h-2 bg-white rounded transition-all duration-300 ease-in-out ${
+              className={`block h-[4px] bg-white rounded transition-all duration-300 ease-in-out ${
                 mobileMenuOpen ? "opacity-0" : ""
               }`}
             ></span>
             <span
-              className={`block h-2 bg-white rounded transition-all duration-300 ease-in-out ${
-                mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
+              className={`block h-[4px] bg-white rounded transition-all duration-300 ease-in-out ${
+                mobileMenuOpen ? "-rotate-45 -translate-y-[10px]" : ""
               }`}
             ></span>
-          </button>
-           )}
-          
+          </button>          
 
           {/* Desktop Menu */}
           <div className="hidden md:block font-roboto text-xl space-x-8">

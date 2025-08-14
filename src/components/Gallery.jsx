@@ -66,7 +66,7 @@ export default function Gallery({ category }) {
             src={`${import.meta.env.BASE_URL}${img.src}`}
             alt={img.alt}
             loading="lazy"
-            className="w-full h-auto object-cover rounded cursor-pointer hover:opacity-90 transition"
+            className="h-auto object-cover cursor-pointer transform hover:scale-200 transition-transform duration-300 ease-in-out"
             onClick={() => {
               setIndex(i);
               setOpen(true);
