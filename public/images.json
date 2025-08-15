@@ -1,6 +1,11 @@
 [
   {
     "category": "polymerClay",
+    "src": "polymerClay/image-11.jpg",
+    "alt": "Earrings made of polymer clay"
+  },
+  {
+    "category": "polymerClay",
     "src": "polymerClay/image-10.jpg",
     "alt": "Earrings made of polymer clay"
   },
