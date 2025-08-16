@@ -46,7 +46,7 @@ export default function Navbar() {
           >
             <span
               className={`block h-[3px] w-full bg-white rounded transition-all duration-300 ease-in-out ${
-                mobileMenuOpen ? "rotate-45 translate-y-[9px]" : ""
+                mobileMenuOpen ? "rotate-45 translate-y-[7.5px]" : ""
               }`}
             ></span>
             <span
@@ -56,7 +56,7 @@ export default function Navbar() {
             ></span>
             <span
               className={`block h-[3px] w-full bg-white rounded transition-all duration-300 ease-in-out ${
-                mobileMenuOpen ? "-rotate-45 -translate-y-[9px]" : ""
+                mobileMenuOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
               }`}
             ></span>
           </button>
