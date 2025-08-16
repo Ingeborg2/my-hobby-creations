@@ -40,23 +40,23 @@ export default function Navbar() {
           {/* Hamburger button */}
           <button
             id="hamburger-button"
-            className="z-[60] flex flex-col start-end justify-between w-8 h-6 sm:hidden focus:outline-none"
+            className="z-[60] flex flex-col justify-between w-8 h-6 sm:hidden focus:outline-none p-1"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
             <span
-              className={`block h-[4px] bg-white rounded transition-all duration-300 ease-in-out ${
-                mobileMenuOpen ? "rotate-45 translate-y-[10px]" : ""
+              className={`block h-[3px] w-full bg-white rounded transition-all duration-300 ease-in-out ${
+                mobileMenuOpen ? "rotate-45 translate-y-[9px]" : ""
               }`}
             ></span>
             <span
-              className={`block h-[4px] bg-white rounded transition-all duration-300 ease-in-out ${
+              className={`block h-[3px] w-full bg-white rounded transition-all duration-300 ease-in-out ${
                 mobileMenuOpen ? "opacity-0" : ""
               }`}
             ></span>
             <span
-              className={`block h-[4px] bg-white rounded transition-all duration-300 ease-in-out ${
-                mobileMenuOpen ? "-rotate-45 -translate-y-[10px]" : ""
+              className={`block h-[3px] w-full bg-white rounded transition-all duration-300 ease-in-out ${
+                mobileMenuOpen ? "-rotate-45 -translate-y-[9px]" : ""
               }`}
             ></span>
           </button>
