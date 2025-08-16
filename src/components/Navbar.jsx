@@ -40,23 +40,27 @@ export default function Navbar() {
           {/* Hamburger button */}
           <button
             id="hamburger-button"
-            className="z-[60] flex flex-col justify-between w-8 h-6 sm:hidden focus:outline-none p-1"
+            className="z-[60] w-8 h-6 sm:hidden focus:outline-none relative"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
             <span
-              className={`block h-[3px] w-full bg-white rounded transition-all duration-300 ease-in-out ${
-                mobileMenuOpen ? "rotate-45 translate-y-[7.5px]" : ""
+              className={`absolute w-8 h-[3px] bg-white rounded transition-all duration-300 ease-in-out origin-center ${
+                mobileMenuOpen 
+                  ? "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45" 
+                  : "top-0 left-0"
               }`}
             ></span>
             <span
-              className={`block h-[3px] w-full bg-white rounded transition-all duration-300 ease-in-out ${
-                mobileMenuOpen ? "opacity-0" : ""
+              className={`absolute w-8 h-[3px] bg-white rounded transition-all duration-300 ease-in-out top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 origin-center ${
+                mobileMenuOpen ? "opacity-0" : "opacity-100"
               }`}
             ></span>
             <span
-              className={`block h-[3px] w-full bg-white rounded transition-all duration-300 ease-in-out ${
-                mobileMenuOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
+              className={`absolute w-8 h-[3px] bg-white rounded transition-all duration-300 ease-in-out origin-center ${
+                mobileMenuOpen 
+                  ? "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-45" 
+                  : "bottom-0 left-0"
               }`}
             ></span>
           </button>
