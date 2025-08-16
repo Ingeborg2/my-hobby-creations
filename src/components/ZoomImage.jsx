@@ -1,49 +1,93 @@
 import { useState } from "react";
 
-export default function ZoomImage({ src, alt }) {
-  const [lens, setLens] = useState({ visible: false, x: 0, y: 0, background: "" });
-  const lensSize = 300;
-  const zoom = 2;
+const ZoomImage = ({ src, alt = "", onClick }) => {
+  const [hovered, setHovered] = useState(false);
+  const [lensStyle, setLensStyle] = useState({
+    top: 0,
+    left: 0,
+    bgPosX: 0,
+    bgPosY: 0,
+    bgSizeX: 0,
+    bgSizeY: 0,
+  });
+
+  const lensSize = 260; // diameter in px (circle)
+  const zoom = 2;       // zoom factor inside lens
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   const handleMouseMove = (e) => {
+    if (isMobile) return;
+
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const imgW = rect.width;
+    const imgH = rect.height;
 
-    const bgX = -(x * zoom - lensSize / 2);
-    const bgY = -(y * zoom - lensSize / 2);
+    // Cursor position relative to image (not clamped)
+    const relX = e.clientX - rect.left;
+    const relY = e.clientY - rect.top;
 
-    setLens({
-      visible: true,
-      x,
-      y,
-      background: `url(${src}) ${bgX}px ${bgY}px / ${rect.width * zoom}px ${rect.height * zoom}px no-repeat`,
+    const r = lensSize / 2;
+
+    // Clamp so the lens stops at edges but the content stays aligned
+    const cx = Math.max(r, Math.min(relX, imgW - r));
+    const cy = Math.max(r, Math.min(relY, imgH - r));
+
+    // Lens element top-left (so its center sits at cx, cy)
+    const lensLeft = cx - r;
+    const lensTop  = cy - r;
+
+    // Background size (zoomed image dimensions)
+    const bgSizeX = imgW * zoom;
+    const bgSizeY = imgH * zoom;
+
+    // Background position so that (cx,cy) appears at lens center
+    // Move the zoomed bg so lens center shows cursor point
+    const bgPosX = -(cx * zoom - r);
+    const bgPosY = -(cy * zoom - r);
+
+    setLensStyle({
+      top: lensTop,
+      left: lensLeft,
+      bgPosX,
+      bgPosY,
+      bgSizeX,
+      bgSizeY,
     });
-  };
-
-  const handleMouseLeave = () => {
-    setLens({ ...lens, visible: false });
   };
 
   return (
     <div
-      className="relative overflow-hidden"
+      className="relative cursor-pointer"
+      onMouseEnter={() => !isMobile && setHovered(true)}
+      onMouseLeave={() => !isMobile && setHovered(false)}
       onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onClick={onClick}
     >
-      <img src={src} alt={alt} className="h-auto w-full object-cover" />
-      {lens.visible && (
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-auto object-cover"
+        draggable={false}
+      />
+
+      {hovered && !isMobile && (
         <div
-          className="absolute pointer-events-none rounded-full border-2 border-gray-300 shadow-lg"
+          className="absolute rounded-full border-2 border-white shadow-lg pointer-events-none overflow-hidden"
           style={{
             width: `${lensSize}px`,
             height: `${lensSize}px`,
-            left: lens.x - lensSize / 2,
-            top: lens.y - lensSize / 2,
-            background: lens.background,
+            top: `${lensStyle.top}px`,
+            left: `${lensStyle.left}px`,
+            backgroundImage: `url(${src})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: `${lensStyle.bgSizeX}px ${lensStyle.bgSizeY}px`,
+            backgroundPosition: `${lensStyle.bgPosX}px ${lensStyle.bgPosY}px`,
           }}
         />
       )}
     </div>
   );
-}
+};
+
+export default ZoomImage;
+
