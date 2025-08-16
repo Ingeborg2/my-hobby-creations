@@ -49,3 +49,13 @@ body,
 #root {
   height: 100%;
 }
+
+@media (max-width: 768px) {
+  #hamburger-button {
+    display: flex !important;
+  }
+
+  .desktop-menu {
+    display: none !important;
+  }
+}
